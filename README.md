@@ -2,5 +2,5 @@
 Andre Fuchs
 Full Stack Designer
 
-Munich / Cologne / Berlin
+Munich / Cologne / Berlin  
 Germany
