@@ -1,2 +1,6 @@
-# portfolio
-Andre Fuchs / Full Stack Designer / Portfolio /
+# Portfolio
+Andre Fuchs
+Full Stack Designer
+
+Munich / Cologne / Berlin
+Germany
