@@ -6,9 +6,8 @@
   <!--
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
 
-
-  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
 -->
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
 
   <link href="src/vuetify.min.css" rel="stylesheet">
 
@@ -27,34 +26,63 @@
   <div id="app">
     <v-app>
       <v-content class="amber" >
-    
-        <v-app-bar
-              app
-              clipped-left
-              color="amber"
-              class="opac"
-              flat
-            >
-            
-              <span class=" headline pink--text text--darken-4 ">Andre <span class="font-weight-bold">Fuchs</span></span>
-         
-              <v-spacer />
-            </v-app-bar>
+     
+      <template>
+        <v-card flat color="amber">
         
-           <template>
-              <v-card
-                max-width="600"
-                class="mx-auto"
-                flat
-                color="amber"
+          <v-app-bar class="opac" color="amber"
+          dark
+          flat
+          fixed
+          app
+          >
+      
+            <v-toolbar-title> <span class=" headline pink--text text--darken-4 ">Andre <span class="font-weight-bold">Fuchs</span></span></v-toolbar-title>
+      
+         
+            <template v-slot:extension>
+
+              <v-tabs
+                v-model="tabs"
+                grow
+               
+                color="pink darken-4"
+                background-color="amber"
+                dark
               >
-              
-            
-                <v-container>
+
+              <v-tabs-slider color="amber"></v-tabs-slider>
+
+                <v-tab
+                  v-for="n in tabsy"
+                  :key="n"
+                >
+                  <v-icon>{{n.icon}}</v-icon>
+                </v-tab>
+              </v-tabs>
+            </template>
+          </v-app-bar>
+      
+
+          <v-tabs-items  class="amber"  v-model="tabs">
+
+            <v-tab-item  class="amber">
+             
+
+                <v-container  >
+
+                   <v-card
+                      max-width="600"
+                      class="mx-auto"
+                      flat
+                      color="amber"
+                    >
+        
+                    
                   <v-row dense>
                <v-col
                       v-for="(entry, i) in entries"
-                      
+                      v-if='entry.gsx$section.$t === "News"'
                       :key="i"
                       cols="12"
                       class="mb-4 "
@@ -65,16 +93,17 @@
                         flat
                         class="mb-4 mt-4"
                       >
-                        <div class="d-flex flex-no-wrap justify-space-between">
+                        <div  class="d-flex flex-no-wrap justify-space-between">
                           <div>
+                            
                             <v-card-title
                               class="font-weight-bold yellow--text text--lighten-4 display-1"
                               v-html="entry.gsx$title.$t"
                             ></v-card-title>
             
                             <v-card-subtitle class="title orange--text text--darken-2" v-html="entry.gsx$moretext.$t"></v-card-subtitle>
-                          
-                            <v-card-subtitle class="headline pink--text text--darken-2"  v-html="entry.gsx$evenmoretext.$t"></v-card-subtitle>
+                            
+                            <v-card-text class="headline pink--text text--darken-2"  v-html="entry.gsx$evenmoretext.$t"></v-card-text>
                           
                           
                           </div>
@@ -90,16 +119,160 @@
                         </div>
 
                         <v-card-actions >
-                          <v-btn :href="entry.gsx$url.$t" target="_blank" rel="noopener" block color="red darken-4" outlined depressed >Open</v-btn>
+                          <v-btn :href="entry.gsx$url.$t" target="_blank" rel="noopener" block color="red darken-4" outlined depressed >{{entry.gsx$urltext.$t}}</v-btn>
                         </v-card-actions>
 
                       </v-card>
                     </v-col>
                   </v-row>
-                </v-container>
+                </v-card>
+                </v-container>   
+            
+           
+            </v-tab-item>
+
+
+            <v-tab-item  class="amber">
+             
+               
+              <v-container >
+
+                
+                <v-card
+                  max-width="600"
+                  class="mx-auto"
+                  flat
+                  color="amber"
+                >
+    
+                
+              <v-row dense>
+           <v-col
+                  v-for="(entry, i) in entries"
+                  v-if='entry.gsx$section.$t === "Work"'
+                  :key="i"
+                  cols="12"
+                  class="mb-4 "
+                >
+                  <v-card
+                    color="amber"
+                    dark
+                    flat
+                    class="mb-4 mt-4"
+                  >
+                    <div  class="d-flex flex-no-wrap justify-space-between">
+                      <div>
+                        <v-card-title
+                          class="font-weight-bold yellow--text text--lighten-4 display-1"
+                          v-html="entry.gsx$title.$t"
+                        ></v-card-title>
+                        <v-card-subtitle class="title orange--text text--darken-2" v-html="entry.gsx$moretext.$t"></v-card-subtitle>
+                       <!-- TODO
+                       <div class="ml-4 subtitle"  v-html="entry.gsx$category.$t"></div>
+-->
+
+                        <v-card-text class="headline pink--text text--darken-2"  v-html="entry.gsx$evenmoretext.$t"></v-card-text>
+                      
+                      
+                      </div>
+        <!-- TODO
+                      <v-avatar
+                        class="ma-3"
+                        size="125"
+                        tile
+                      >
+                        <v-img :src="item.src"></v-img>
+                      </v-avatar>
+                    -->
+                    </div>
+
+                    <v-card-actions >
+                      <v-btn :href="entry.gsx$url.$t" target="_blank" rel="noopener" block color="red darken-4" outlined depressed >{{entry.gsx$urltext.$t}}</v-btn>
+                    </v-card-actions>
+
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-card>
+            </v-container>               
+
+            </v-tab-item>
+
+
+            <v-tab-item class="amber fill-height">
+           
+              <v-container >
+
+                
+                <v-card
+                  max-width="600"
+                  class="mx-auto"
+                  flat
+                  color="amber"
+                >
+    
+                
+              <v-row dense>
+           <v-col
+                  v-for="(entry, i) in entries"
+                  v-if='entry.gsx$section.$t === "Contact"'
+                  :key="i"
+                  cols="12"
+                  class="mb-4 "
+                >
+
+               
+                  <v-card
+                    color="amber"
+                    dark
+                    flat
+                    class="mb-4 mt-4"
+                  >
+                    <div  class="d-flex flex-no-wrap justify-space-between">
+                      <div>
+
+                        
+                        <v-card-title
+                          class="font-weight-bold yellow--text text--lighten-4 display-1"
+                          v-html="entry.gsx$title.$t"
+                        ></v-card-title>
         
-            </template>
-         
+                        <v-card-subtitle class="title orange--text text--darken-2" v-html="entry.gsx$moretext.$t"></v-card-subtitle>
+                      
+                        <v-card-text class="headline pink--text text--darken-2"  v-html="entry.gsx$evenmoretext.$t"></v-card-text>
+                     
+                      
+                      </div>
+        <!-- TODO
+                      <v-avatar
+                        class="ma-3"
+                        size="125"
+                        tile
+                      >
+                        <v-img :src="item.src"></v-img>
+                      </v-avatar>
+                    -->
+                    </div>
+
+                    <v-card-actions v-if='entry.gsx$url.$t.length > 0'> 
+                      <v-btn :href="entry.gsx$url.$t" target="_blank" rel="noopener" block color="red darken-4" outlined depressed >{{entry.gsx$urltext.$t}}</v-btn>
+                    </v-card-actions>
+
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-card>
+        
+            </v-container>   
+
+            </v-tab-item>
+
+
+          </v-tabs-items>
+
+        </v-card>
+      </template>
+
       </v-content>
 </v-app>
   </div>
@@ -112,7 +285,10 @@ var sheetUrl = 'https://spreadsheets.google.com/feeds/list/1aBzH-uRF5-VUVh5JRvaC
       el: '#app',
       vuetify: new Vuetify(),
 data: {
-		entries: null
+		entries: null,
+    tabs: null,
+        text: 'Lorem ip',
+        tabsy: [{ icon: 'mdi-comment-text-outline', color: 'grey'}, { icon: 'mdi-details', color: 'grey'}, { icon: 'mdi-email-outline', color: 'grey'}],    
 	},
 
   
@@ -144,6 +320,6 @@ data: {
 
 <style>
   .opac {
-    opacity: 0.75;
+    opacity: 0.90;
   }
 </style>
