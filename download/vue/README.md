@@ -1,4 +1,5 @@
 
+
 <a href="https://andrefuchs.github.io/download/vue/free-vuetify-prelaunch-landing-page-template.html"><img src="https://andrefuchs.github.io/download/vue/rocket.svg" height="75" title="Free VuetifyJS VueJS Prelaunch Landing Page Template" alt="VuetifyJS VueJS Template"></a>
 
 ![Screenshot Desktop](https://andrefuchs.github.io/download/vue/desktop-free-vuetify-prelaunch-landing-page-template.png)
@@ -12,13 +13,13 @@
 
 > Clean and minimal
 
+**Screenshot Mobile**
+
+![Screenshot Desktop](https://andrefuchs.github.io/download/vue/mobile-free-vuetify-prelaunch-landing-page-template.png =250x)
 
 **Screenshot Desktop**
 ![Screenshot Desktop](https://andrefuchs.github.io/download/vue/desktop-free-vuetify-prelaunch-landing-page-template.png)
 
-**Screenshot Mobile**
-
-![Screenshot Desktop](https://andrefuchs.github.io/download/vue/mobile-free-vuetify-prelaunch-landing-page-template.png)
 
 
 [**Template made by Andre Fuchs**](https://andrefuchs.github.io/)
