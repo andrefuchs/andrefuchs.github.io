@@ -14,6 +14,7 @@
 > Clean and minimal
 
 **Screenshot Mobile**
+
 <img src="https://andrefuchs.github.io/download/vue/mobile-free-vuetify-prelaunch-landing-page-template.png" alt="Mobile" width="250"/>
 
 **Screenshot Desktop**
