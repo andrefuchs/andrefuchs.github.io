@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Free VuetifyJS VueJS Pre-Launch Landing Page Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900' rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="app">
+        <v-app>
+
+            <v-app-bar app color="yellow" height="50" flat>
+                <v-toolbar-title class="font-weight-black black--text headline">
+                    Prelaunch
+                </v-toolbar-title>
+            </v-app-bar>
+
+            <v-content class="yellow">
+                <v-row>
+                    <v-container fill-height>
+                        <v-row align="center" class="mx-auto" justify="center">
+                            <v-col class="text-center" cols="12" tag="h1">
+                                <v-avatar tile size="96" class="mb-3">
+                                    <v-img src="rocket.svg"></v-img>
+                                </v-avatar>
+
+                                <div></div>
+
+                                <span :class="[$vuetify.breakpoint.smAndDown ? 'display-1' : 'display-2']"
+                                    class=" red--text font-weight-bold">
+                                    Free VuetifyJS Prelaunch Landing Page Template
+                                </span>
+
+                            </v-col>
+
+                            <v-col class="text-center" cols="12" md="6">
+                                <v-form ref="form" v-model="valid" lazy-validation>
+
+                                    <v-text-field placeholder="Enter your e-mail..." solo outlined flat v-model="email"
+                                        :rules="emailRules" label="GET EARLY ACCESS" required color="blue"
+                                        prepend-inner-icon="mdi-email"></v-text-field>
+
+                                    <v-btn block dark depressed large color="blue" @click="validate">
+                                        Notify me
+                                    </v-btn>
+                                </v-form>
+                            </v-col>
+
+                    </v-container>
+            </v-content>
+
+            <v-footer class="justify-center" color="red" height="75">
+                <div class="title font-weight-light grey--text text--lighten-1 text-center">
+                    <v-btn href="#" text color="white">Contact</v-btn>
+                    <v-btn href="#" text color="white">Blog</v-btn>
+                    <v-btn href="#" text color="white">Legal</v-btn>
+                </div>
+            </v-footer>
+        </v-app>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            vuetify: new Vuetify(),
+            data() {
+                return {
+                    valid: true,
+                    email: '',
+                    emailRules: [
+                        v => !!v || 'E-mail is required',
+                        v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+                    ],
+                }
+            },
+            methods: {
+                validate() {
+                    this.$refs.form.validate()
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>
+<!-- Prelaunch Template made by Andre Fuchs https://andrefuchs.github.io -->
+<!-- Rocket icon made by Vitaly Gorbachev https://www.flaticon.com/authors/vitaly-gorbachev -->
